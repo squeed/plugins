@@ -43,7 +43,6 @@ func makeVethPair(name, peer string, mtu int) (netlink.Link, error) {
 	if err := netlink.LinkAdd(veth); err != nil {
 		return nil, err
 	}
-
 	return veth, nil
 }
 
@@ -149,6 +148,12 @@ func SetupVeth(contVethName string, mtu int, hostNS ns.NetNS) (net.Interface, ne
 		}
 		return nil
 	})
+	if err != nil {
+		return net.Interface{}, net.Interface{}, err
+	}
+
+	// Refresh the veth to get os-supplied attributes, e.g. mac
+	contVeth, err = netlink.LinkByName(contVethName)
 	if err != nil {
 		return net.Interface{}, net.Interface{}, err
 	}
