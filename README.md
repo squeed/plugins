@@ -18,6 +18,7 @@ Some CNI network plugins, maintained by the containernetworking team. For more i
 * `host-local`: maintains a local database of allocated IPs
 
 ### Meta: other plugins
+* `bandwidth`: Adds ingress and egress bandwidth limits
 * `flannel`: generates an interface corresponding to a flannel config file
 * `tuning`: Tweaks sysctl parameters of an existing interface
 * `portmap`: An iptables-based portmapping plugin. Maps ports from the host's address space to the container.
