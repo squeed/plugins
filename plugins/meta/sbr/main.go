@@ -372,9 +372,10 @@ RULE_LOOP:
 }
 
 func main() {
-	skel.PluginMain(cmdAdd, cmdGet, cmdDel, version.All, bv.BuildString("sbr"))
+	skel.PluginMain(cmdAdd, cmdCheck, cmdDel, version.All, bv.BuildString("sbr"))
 }
 
-func cmdGet(args *skel.CmdArgs) error {
-	return fmt.Errorf("not implemented")
+func cmdCheck(args *skel.CmdArgs) error {
+	//TODO: implement
+	return nil
 }
